@@ -1,0 +1,34 @@
+class MyCalendar:
+
+    def __init__(self):
+        self.arr=[]
+        
+
+    def book(self, start: int, end: int) -> bool:
+        self.start=start
+        self.end=end
+        if self.arr==[]:
+            self.arr.append([start,end])
+            return True
+        else:
+            self.arr.sort()
+            temp=0
+            for i in range(len(self.arr)):
+                if start>=self.arr[i][0] and start<self.arr[i][1]:
+                    temp=1
+                if end>self.arr[i][0] and end<=self.arr[i][1]:
+                    temp=1
+                if start<=self.arr[i][0] and end>=self.arr[i][1]:
+                    temp=1
+            if temp==1:
+                return False
+            else:
+                self.arr.append([start,end])
+            return True
+
+        
+
+
+# Your MyCalendar object will be instantiated and called as such:
+# obj = MyCalendar()
+# param_1 = obj.book(start,end)
